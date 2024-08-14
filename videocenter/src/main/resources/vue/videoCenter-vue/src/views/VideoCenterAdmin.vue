@@ -67,13 +67,7 @@ onMounted(async () => {
    <a-layout style="display: flex; flex-direction: column; height: 100vh">
     <a-layout-header class="header">
       <div class="logo" />
-      <a-menu
-        v-model:selectedKeys="topMenuSelect"
-        theme="dark"
-        mode="horizontal"
-        :style="{ lineHeight: '64px' }"
-      >
-      </a-menu>
+      <h2 style="color: white">VideoCenter-admin</h2>
     </a-layout-header>
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
