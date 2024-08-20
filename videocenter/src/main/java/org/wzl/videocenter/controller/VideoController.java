@@ -15,17 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
+import org.wzl.videocenter.vo.VideoVO;
 
 
 @Slf4j
 @RestController
 @RequestMapping("/video")
 public class VideoController {
-    
-    @Autowired
-    private VideoService videoService;
+
+    private final VideoService videoService;
+
+    public VideoController(VideoService videoService) {
+        this.videoService = videoService;
+    }
 
     @GetMapping("/getAll")
     public Resp<?> getAll() {
@@ -34,11 +36,10 @@ public class VideoController {
 
 
     @PostMapping("/getVideoPage/{page}/{size}")
-    public Resp<?> getVideoPage(@PathVariable double page,
-                                @PathVariable double size,
-                                VideoSearchDTO videoSearchDTO) {
-        IPage<>                            
-        return Resp.ok();
+    public Resp<IPage<VideoVO>> getVideoPage(@PathVariable long page,
+                                             @PathVariable long size,
+                                             VideoSearchDTO videoSearchDTO) {
+        return Resp.ok(videoService.getVideoPage(page, size, videoSearchDTO));
     }
 
 }
