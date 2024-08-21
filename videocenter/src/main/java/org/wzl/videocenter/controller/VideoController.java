@@ -38,7 +38,7 @@ public class VideoController {
     @PostMapping("/getVideoPage/{page}/{size}")
     public Resp<IPage<VideoVO>> getVideoPage(@PathVariable long page,
                                              @PathVariable long size,
-                                             VideoSearchDTO videoSearchDTO) {
+                                             @RequestBody VideoSearchDTO videoSearchDTO) {
         return Resp.ok(videoService.getVideoPage(page, size, videoSearchDTO));
     }
 
