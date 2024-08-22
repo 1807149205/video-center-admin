@@ -24,11 +24,10 @@ class HTTPClient {
         return resp.data as ServerCommonResponse<T>;
     }
 
-    // 你也可以添加其他 HTTP 方法，比如 post、put、delete 等
     async post<T>(url: string, data: any): Promise<ServerCommonResponse<T>> {
         const resp = await this.instance.post(url, data);
         return resp.data as ServerCommonResponse<T>;
     }
 }
 
-export default new HTTPClient("http://127.0.0.1:8080");
+export default new HTTPClient("https://8080-1807149205-videocentera-g8bg4vt1law.ws-us115.gitpod.io");
